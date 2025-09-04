@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Freelance() {
   return (
@@ -18,8 +20,9 @@ export default function Freelance() {
 
           {/* Navigation */}
           <nav className="flex flex-wrap gap-4 md:gap-6">
-            <a href="/" className="hover:text-pink-400">Back to Portfolio</a>
-            <a href="#work" className="hover:text-pink-400">Work</a>
+           <Link to="/" className="hover:text-pink-400">Back to Portfolio</Link>
+<a href="#work" className="hover:text-pink-400">Work</a>
+
           </nav>
         </div>
       </header>
@@ -72,9 +75,10 @@ export default function Freelance() {
               <p className="text-gray-400 text-sm mb-4">
                 A modern responsive portfolio built with React & TailwindCSS.
               </p>
-              <a href="http://localhost:5173/?#projects" className="text-pink-400 hover:underline">
-                View Project →
-              </a>
+              <Link to="/" className="text-pink-400 hover:underline">
+  View Project →
+</Link>
+
             </div>
             {/* Project 2 */}
             <div className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:scale-105 transition transform">
@@ -82,9 +86,8 @@ export default function Freelance() {
               <p className="text-gray-400 text-sm mb-4">
                 A complete MERN stack store with payments integration.
               </p>
-              <a href="http://localhost:5173/?#projects" className="text-pink-400 hover:underline">
-                View Project →
-              </a>
+              <Link to="/" className="text-pink-400 hover:underline">  View Project →</Link>
+              
             </div>
             {/* Project 3 */}
             <div className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:scale-105 transition transform">
@@ -92,9 +95,8 @@ export default function Freelance() {
               <p className="text-gray-400 text-sm mb-4">
                 A real-time chat app like WhatsApp using Socket.io & React.
               </p>
-              <a href="http://localhost:5173/?#projects" className="text-pink-400 hover:underline">
-                View Project →
-              </a>
+              <Link to="/" className="text-pink-400 hover:underline">  View Project →</Link>
+
             </div>
           </div>
         </div>

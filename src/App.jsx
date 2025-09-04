@@ -62,7 +62,7 @@ export default function App() {
             <a href="#services" className="hover:text-pink-400">Services</a>
             <a href="#experience" className="hover:text-pink-400">Experience</a>
             <a href="#testimonials" className="hover:text-pink-400">Testimonials</a>
-            <a href="/freelance" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">Freelancer</a>
+            <a href="/freelance" className="hover:text-pink-400">Freelancer</a>
             <a href="#contact" className="hover:text-pink-400">Contact</a>
             <a href="pradeep resume.pdf" className="ml-4 inline-flex items-center gap-2 bg-pink-600 px-3 py-2 rounded-xl hover:bg-pink-500">
               <FaDownload /> Resume
