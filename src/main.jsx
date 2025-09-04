@@ -1,19 +1,18 @@
 import React from "react";
-import { HashRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Freelance from "./freelance";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/freelance" element={<Freelance />} />
       </Routes>
-  </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
