@@ -1,5 +1,5 @@
 // src/App.jsx
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
@@ -8,18 +8,19 @@ import {
   FaDownload,
   FaMapMarkerAlt,
   FaPhoneAlt,
-  FaCheckCircle,
 } from "react-icons/fa";
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false); // ✅ Mobile menu state
+
   const projects = [
     { title: "SaleBuddy Web", img: "salebuddy.png", desc: "E-Commerce website for sale and buy laptops and mobile" },
     { title: "Portfolio", img: "portfolio.PNG", desc: "This is portfolio site" },
     { title: "E-commerce UI", img: "quickcom.PNG", desc: "Quickcom websites for all kitchen product like Groceries,furniture and other" },
     { title: "Dashboard", img: "dashboard.PNG", desc: "Analytics dashboard & charts" },
-    { title: "Food Page", img: "food.PNG", desc: "Food Entry page  " },
+    { title: "Food Page", img: "food.PNG", desc: "Food Entry page" },
     { title: "Supply", img: "supply.PNG", desc: "Admin CRUD & RBAC" },
   ];
 
@@ -28,14 +29,13 @@ export default function App() {
     { title: "Performance Optimization", desc: "Code-splitting, image optimization, lighthouse improvements." },
     { title: "UI/UX & Prototyping", desc: "Pixel-perfect UIs, responsive layouts, Framer Motion interactions." },
     { title: "Backend Development", desc: "Node / Express.js, Event driven , handled database with Mysql and mongodb." },
-    { title: "Others", desc: "Deployement of the frontend project on vercel / netilfy and suffient knowledge of git/github like upload the  code on github." },
-
+    { title: "Others", desc: "Deployment on Vercel / Netlify, git/github management." },
   ];
 
-  const skills = ["HTML5", "CSS3", "Tailwind", "JavaScript", "TypeScript", "React", "Next.js", "Express js", "Node.js", "Git", "Github", "vercel", "netlify", "mysql", "mongodb", "bootstrap", "Material UI", "C Language"];
+  const skills = ["HTML5", "CSS3", "Tailwind", "JavaScript", "TypeScript", "React", "Next.js", "Express js", "Node.js", "Git", "Github", "Vercel", "Netlify", "Mysql", "Mongodb", "Bootstrap", "Material UI", "C Language"];
 
   const experience = [
-    { role: "MERN Developer (Intern)", company: "Numeric Inforsystem Pvt Ltd", period: "2024 — Present", bullets: ["Work on MERN Stack Technoligy", "Worked on User-Interface"] },
+    { role: "MERN Developer (Intern)", company: "Numeric Inforsystem Pvt Ltd", period: "2024 — Present", bullets: ["Work on MERN Stack Technology", "Worked on User-Interface"] },
   ];
 
   const education = [
@@ -47,35 +47,54 @@ export default function App() {
     { name: "Sneha Verma", text: "Great attention to detail — animations and responsiveness were top-notch." },
   ];
 
-  const achievements = [
-    "Certificate: C programming Language",
-    
-  ];
-
   return (
     <div className="bg-black text-white font-sans leading-relaxed">
-      {/* NAV */}
+      {/* NAVBAR */}
       <header className="fixed w-full z-50 bg-black/60 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           <a href="#home" className="text-2xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
             PRADEEP KUSHWAH<span className="text-pink-500">.</span>
           </a>
+
+          {/* Desktop Menu */}
           <nav className="hidden md:flex gap-6 text-gray-300">
             <a href="#projects" className="hover:text-pink-400">Projects</a>
             <a href="#services" className="hover:text-pink-400">Services</a>
             <a href="#experience" className="hover:text-pink-400">Experience</a>
             <a href="#testimonials" className="hover:text-pink-400">Testimonials</a>
- <a href="/freelance" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
-        Freelancer
-      </a>
+            <a href="/freelance" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">Freelancer</a>
             <a href="#contact" className="hover:text-pink-400">Contact</a>
             <a href="pradeep resume.pdf" className="ml-4 inline-flex items-center gap-2 bg-pink-600 px-3 py-2 rounded-xl hover:bg-pink-500">
               <FaDownload /> Resume
             </a>
           </nav>
-          <div className="md:hidden text-gray-300">☰</div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl text-gray-300"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <nav className="md:hidden bg-black/95 backdrop-blur w-full px-6 py-4 flex flex-col gap-4 text-gray-300 border-t border-white/10">
+            <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Projects</a>
+            <a href="#services" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Services</a>
+            <a href="#experience" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Experience</a>
+            <a href="#testimonials" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Testimonials</a>
+            <a href="/freelance" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Freelancer</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-pink-400">Contact</a>
+            <a href="pradeep resume.pdf" onClick={() => setMenuOpen(false)} className="inline-flex items-center gap-2 bg-pink-600 px-3 py-2 rounded-xl hover:bg-pink-500">
+              <FaDownload /> Resume
+            </a>
+          </nav>
+        )}
       </header>
+
+
 
       {/* HERO */}
       <main id="home" className="pt-20">
@@ -201,9 +220,6 @@ export default function App() {
                     </motion.div>
                   ))}
                 </div>
-
-              
-               
               </div>
             </div>
           </div>
@@ -261,12 +277,12 @@ export default function App() {
             </motion.div>
 
             <motion.form initial="hidden" animate="show" variants={fadeUp} className="glass rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur grid gap-4">
-              <input className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" placeholder="Your name" required />
-              <input type="email" required className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" placeholder="Email" />
+              <input className="rounded-xl px-4 py-3 border border-white/10 bg-black/40"  required placeholder="Your name" />
+              <input type="email" className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" required placeholder="Email" />
               {/* Summary about yourself */}
-              <textarea rows="3" required className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" placeholder="Short summary about yourself (experience, role, what you're looking for)"></textarea>
+              <textarea rows="3" className="rounded-xl px-4 py-3 border border-white/10 bg-black/40"  requiredplaceholder="Short summary about yourself (experience, role, what you're looking for)"></textarea>
               {/* Message */}
-              <textarea rows="4" required className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" placeholder="Message (details, links)"></textarea>
+              <textarea rows="4" className="rounded-xl px-4 py-3 border border-white/10 bg-black/40" required  placeholder="Message (details, links)"></textarea>
               <button type="submit" className="rounded-xl bg-pink-600 hover:bg-pink-500 px-5 py-3 font-semibold">Send Message</button>
             </motion.form>
           </div>
